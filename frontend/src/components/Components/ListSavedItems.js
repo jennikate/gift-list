@@ -16,7 +16,6 @@ const ListSavedItems = (props) => {
 
   //===== FUNCTIONS FOR THIS PAGE =====
   function getSavedItems(items) {
-    console.log('getting saved items')
     let itemDetail = [] //holds item data for each item
 
     if (props.itemsSaved) {
@@ -24,7 +23,7 @@ const ListSavedItems = (props) => {
         axios.get(`/api/items/${elem}`)
           .then(response => {
             itemDetail = [...itemDetail]
-            console.log('itemdetail', itemDetail)
+            // console.log(itemDetail)
             itemDetail.push(response.data)
             setData(itemDetail)
           })
@@ -48,7 +47,7 @@ const ListSavedItems = (props) => {
     })
     //remove from list data
     axios.put(`/api/lists/${props.userId}/${props.listId}`, { itemsSaved: updatedListingIds })
-      .then(response => console.log('put', response))
+      .then(response => console.log(response))
       .catch(err => console.log('error', err))
   }
 
@@ -56,6 +55,7 @@ const ListSavedItems = (props) => {
   useEffect(() => {
     getSavedItems(props.itemsSaved)
   }, [props.itemsSaved])
+  console.log(data)
 
   if (data === []) { return <div>Loading</div> }
   return (
@@ -83,5 +83,4 @@ const ListSavedItems = (props) => {
 }
 
 export default ListSavedItems
-
 
