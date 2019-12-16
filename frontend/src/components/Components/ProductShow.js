@@ -29,6 +29,7 @@ const ProductShow = (props) => {
     setData(props)
   }
 
+  // console.log(props)
 
   //===== FUNCTIONS FOR THIS PAGE =====
   //This displays 6 of the first category
@@ -47,6 +48,7 @@ const ProductShow = (props) => {
     const ListingID = data.map((ele, i) => {
       return ele.listing_id
     })
+    // console.log(ListingID)
     let newArr = []
     ListingID.forEach((ele, i) => {
       axios.get(`/api/image/${ele}`)
@@ -72,19 +74,21 @@ const ProductShow = (props) => {
       listingId: store + '-' + ele.listing_id,
       price: ele.price,
       currencyCode: ele.currency_code
+      
+
     }  
     setEtsyListingID('')
     e.preventDefault()
-    axios.post(`/api/items/`, data, {
-      headers: { Authorization: `Bearer ${Auth.getToken()}` }
-    })
+    console.log('working')
+    axios.post(`/api/items/`, data )
       .then(()=>{
-        console.log('props refresh')
         props.refreshFunction()
-        console.log('etsyhook')
+        console.log('completed')
+
         etsyHook(cat[0])
       })
       .catch((err) => {
+        console.log('error')
         setErrors(err.response)
       })
   }
@@ -102,7 +106,7 @@ const ProductShow = (props) => {
   return (
     <div id='list-products' className='element'>
       <div className='container'>
-        <h3>Categories chosen</h3>
+        <h3>Your categories</h3>
         <ul className='filter-option'>
           {cat.map((ele, i) => {
             return (
