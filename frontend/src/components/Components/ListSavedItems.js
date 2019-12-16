@@ -55,7 +55,9 @@ const ListSavedItems = (props) => {
   useEffect(() => {
     getSavedItems(props.itemsSaved)
   }, [props.itemsSaved])
-  console.log(data)
+
+
+  console.log('data', data)
 
   if (data === []) { return <div>Loading</div> }
   return (
