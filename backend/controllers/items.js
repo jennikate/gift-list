@@ -23,7 +23,7 @@ function add2(req, res) {
   }
   const listingId = req.body.listingId
 
-  axios.put(`http://localhost:4000/api/lists/${req.body.user_id}/${req.body.list_id}/etsy`, { "item": listingId })
+  axios.put(`http://localhost:4000/api/lists/${req.body.user_id}/${req.body.list_id}/etsy`, { 'item': listingId })
     .then(() =>
       res.send({ status: 200, message: 'item saved' })
     )
