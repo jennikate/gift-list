@@ -78,7 +78,7 @@ const SingleList = (props) => {
       .then(response => {
         setEtsy(response.data.data)
         getListingIds(response.data.data)
-        console.log(response.data.data)
+        // console.log(response.data.data)
       })
       .catch(err => setErrors(err))
   }
@@ -87,7 +87,7 @@ const SingleList = (props) => {
     const ListingID = data.map((ele, i) => {
       return ele.listing_id
     })
-    console.log(ListingID)
+    // console.log(ListingID)
     let newArr = []
     ListingID.map((ele, i)=> {
       axios.get(`/api/image/${ele}`)

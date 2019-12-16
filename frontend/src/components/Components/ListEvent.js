@@ -59,7 +59,7 @@ const ListEvent = (props) => {
   }, [props])
 
 
-console.log('remind', data.eventReminder)
+// console.log('remind', data.eventReminder)
   return (
 
     <div id='list-event'>

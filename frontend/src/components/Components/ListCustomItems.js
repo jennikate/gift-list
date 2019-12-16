@@ -28,7 +28,7 @@ const ListCustomItems = (props) => {
 
 
 
-  console.log(props.customItem)
+  // console.log(props.customItem)
 
   // //initiate our data from our props
   const setDataFromProps = () => {
@@ -83,7 +83,7 @@ const ListCustomItems = (props) => {
   }
 
   const editCustomItem = (pos) => {
-    console.log('test')
+    // console.log('test')
     let newArray = [...editCustom]
     newArray[pos] = !newArray[pos]
     setEditCustom(newArray)
@@ -107,7 +107,7 @@ const ListCustomItems = (props) => {
     setDataFromProps(props)
   }, [props])
 
-  console.log(editCustom)
+  // console.log(editCustom)
 
 
   if (customItems === undefined || customItems === [] || editCustom === []) { return <div>Loading</div> }
