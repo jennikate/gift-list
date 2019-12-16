@@ -26,7 +26,7 @@ const ListSavedItems = (props) => {
             itemDetail = [...itemDetail]
             console.log('itemdetail', itemDetail)
             itemDetail.push(response.data)
-            setData('set', itemDetail)
+            setData(itemDetail)
           })
           .catch(err => console.log('error', err))
       })
