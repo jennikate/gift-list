@@ -24,7 +24,7 @@ const ListSavedItems = (props) => {
         axios.get(`/api/items/${elem}`)
           .then(response => {
             itemDetail = [...itemDetail]
-            console.log(itemDetail)
+            console.log('itemdetail', itemDetail)
             itemDetail.push(response.data)
             setData('set', itemDetail)
           })

@@ -29,7 +29,6 @@ const ProductShow = (props) => {
     setData(props)
   }
 
-  // console.log(props)
 
   //===== FUNCTIONS FOR THIS PAGE =====
   //This displays 6 of the first category
@@ -48,7 +47,6 @@ const ProductShow = (props) => {
     const ListingID = data.map((ele, i) => {
       return ele.listing_id
     })
-    // console.log(ListingID)
     let newArr = []
     ListingID.forEach((ele, i) => {
       axios.get(`/api/image/${ele}`)
@@ -104,7 +102,7 @@ const ProductShow = (props) => {
   return (
     <div id='list-products' className='element'>
       <div className='container'>
-        <h3>Your categories</h3>
+        <h3>Categories chosen</h3>
         <ul className='filter-option'>
           {cat.map((ele, i) => {
             return (

@@ -58,7 +58,7 @@ const ListCustomItems = (props) => {
         setCustomItem(customSchema)
 
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('err', err))
   }
   //Deletes item, then reruns get Custom Item hook
   const deleteCustomItem = (id) => {
@@ -67,7 +67,7 @@ const ListCustomItems = (props) => {
         setCustomItems(response.data.customItem)
         customItemIdArray(response.data.customItem)
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('err', err))
   }
 
   // //======USER CAN EDIT CUSTOM ITEMS
@@ -112,7 +112,7 @@ const ListCustomItems = (props) => {
 
   if (customItems === undefined || customItems === [] || editCustom === []) { return <div>Loading</div> }
   else {
-    console.log('working')
+    //console.log('working')
     // let list = customItems
     return (
       <div id='list-name' className='element'>

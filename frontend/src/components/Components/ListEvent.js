@@ -40,7 +40,7 @@ const ListEvent = (props) => {
     axios.put(`/api/lists/${props.userId}/${props.listId}`, tempData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
-      .catch(err => console.log(err))
+      .catch(err => console.log('err', err))
     //update our page data
     setData(tempData)
     //update editable status
