@@ -6,7 +6,7 @@ by [Georg Preuss](https://github.com/georgmp), [JenniKate Wallace](https://githu
 
 ## The product
 
-[View the app]()
+[View the app](https://giftlist.herokuapp.com/)
 
 [View the code](https://github.com/georgmp/gift-list)
 
@@ -26,7 +26,6 @@ GiftList is an app where you can
 - you can browse through all available items by category/subcategory, even if you're not logged in
 - you can save items from the suggestion list or from browsing all categories
 
-_add link to jump to installation_
 
 ----
 
@@ -222,9 +221,5 @@ If you find any other bugs let us know!
 - `Change categories in my filters` We'd like to give you the option to add or remove categories from your list
 - `Show trending items` In a few areas we'd like to show a list of trending items, or just a list of various items. 
 
-
-----
-
-## Installation
 
 ----

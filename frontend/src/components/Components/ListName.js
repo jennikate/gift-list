@@ -37,10 +37,10 @@ const ListName = (props) => {
 
   const handleSave = (e) => {
     e.preventDefault()
-    axios.put(`http://localhost:8000/api/lists/${props.userId}/${props.listId}`, tempData, {
+    axios.put(`/api/lists/${props.userId}/${props.listId}`, tempData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
-      .catch(err => console.log(err))
+      .catch(err => console.log('err', err))
     //update our page data
     setData(tempData)
     //update editable status

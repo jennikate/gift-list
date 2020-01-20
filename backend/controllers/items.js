@@ -1,7 +1,7 @@
 const Item = require('../models/Item')
 // const { getEtsyListing } = require('./stores') :: aim to extract this out but the call to addItem from stores isn't working
 const axios = require('axios')
-axios.defaults.baseURL = 'http://localhost:8000/api'
+axios.defaults.baseURL = '/api'
 
 require('dotenv').config()
 const etsyKey = process.env.ETSY_KEY
@@ -23,12 +23,13 @@ function add2(req, res) {
   }
   const listingId = req.body.listingId
 
-  axios.put(`/lists/${req.body.user_id}/${req.body.list_id}/etsy`, { "item": listingId })
+  axios.put(`https://giftlist.herokuapp.com/api/lists/${req.body.user_id}/${req.body.list_id}/etsy`, { 'item': listingId })
+  // axios.put(`http://localhost:4000/api/lists/${req.body.user_id}/${req.body.list_id}/etsy`, { 'item': listingId })
     .then(() =>
       res.send({ status: 200, message: 'item saved' })
     )
     .then(addItem(req.body))
-    .catch(() => res.send(200).json({ message: 'alread in our database' }))
+    .catch(() => res.send(200).json({ message: 'already in our database' }))
 
 }
 

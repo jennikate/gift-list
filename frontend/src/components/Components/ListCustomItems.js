@@ -28,7 +28,7 @@ const ListCustomItems = (props) => {
 
 
 
-  console.log(props.customItem)
+  // console.log(props.customItem)
 
   // //initiate our data from our props
   const setDataFromProps = () => {
@@ -48,7 +48,7 @@ const ListCustomItems = (props) => {
   }
   function saveCustomEdit(e) {
     e.preventDefault()
-    axios.post(`http://localhost:8000/api/lists/${props.userId}/${props.listId}/customItems`, customItem, {
+    axios.post(`/api/lists/${props.userId}/${props.listId}/customItems`, customItem, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then((response) => {
@@ -58,16 +58,16 @@ const ListCustomItems = (props) => {
         setCustomItem(customSchema)
 
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('err', err))
   }
   //Deletes item, then reruns get Custom Item hook
   const deleteCustomItem = (id) => {
-    axios.delete(`http://localhost:8000/api/lists/${props.userId}/${props.listId}/customItems/${id}`)
+    axios.delete(`/api/lists/${props.userId}/${props.listId}/customItems/${id}`)
       .then((response) => {
         setCustomItems(response.data.customItem)
         customItemIdArray(response.data.customItem)
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('err', err))
   }
 
   // //======USER CAN EDIT CUSTOM ITEMS
@@ -83,7 +83,7 @@ const ListCustomItems = (props) => {
   }
 
   const editCustomItem = (pos) => {
-    console.log('test')
+    // console.log('test')
     let newArray = [...editCustom]
     newArray[pos] = !newArray[pos]
     setEditCustom(newArray)
@@ -96,7 +96,7 @@ const ListCustomItems = (props) => {
   }
 
   const saveCustomEditItem = (id, i) => {
-    axios.put(`http://localhost:8000/api/lists/${props.userId}/${props.listId}/customItems/${id}`, customItems[i])
+    axios.put(`/api/lists/${props.userId}/${props.listId}/customItems/${id}`, customItems[i])
       .then((response) => {
         setCustomItems(response.data.customItem)
         customItemIdArray(response.data.customItem)
@@ -107,12 +107,12 @@ const ListCustomItems = (props) => {
     setDataFromProps(props)
   }, [props])
 
-  console.log(editCustom)
+  // console.log(editCustom)
 
 
   if (customItems === undefined || customItems === [] || editCustom === []) { return <div>Loading</div> }
   else {
-    console.log('working')
+    //console.log('working')
     // let list = customItems
     return (
       <div id='list-name' className='element'>

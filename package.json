@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Jen's comment Hello World The start of something great",
   "main": "app.js",
+  "engines": {
+    "node": "12.13.0"
+  },
   "scripts": {
     "test": "mocha test/**/*_spec.js --require test/helper --recursive --exit",
     "seed": "node db/seeds.js",
-    "build": "npm run seed",
-  	"start": "node backend/app.js"
+    "build": "cd frontend; npm run build",
+    "start": "node backend/app.js"
   },
   "repository": {
     "type": "git",
